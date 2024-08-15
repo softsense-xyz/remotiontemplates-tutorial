@@ -1,5 +1,8 @@
 import { useColorPalette } from "../../../util/useColorPalette"
-import { useCurrentFrame, useVideoConfig } from "remotion"
+import {
+    useCurrentFrame,
+    useVideoConfig,
+} from "remotion"
 
 export default () => {
     const { primary } = useColorPalette()
@@ -13,5 +16,13 @@ export default () => {
     const speed = 600
     const x = speed * elapsedSeconds + 100
 
-    return <rect x={x} y={100} width={100} height={100} fill={primary} />
+    return (
+        <rect
+            x={x}
+            y={100}
+            width={100}
+            height={100}
+            fill={primary}
+        />
+    )
 }

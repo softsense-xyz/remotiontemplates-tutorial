@@ -26,7 +26,11 @@ export const calculateAnimationsIntroMetadata: CalculateMetadataFunction<
         fps,
         width,
         height,
-        durationInFrames: calculateDurationInFrames(props.scene, fps),
+        durationInFrames:
+            calculateDurationInFrames(
+                props.scene,
+                fps,
+            ),
         props,
     }
 }

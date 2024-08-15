@@ -11,7 +11,10 @@ import { bundle } from "@remotion/bundler"
 import { animationsIntroScenes } from "./compositions/AnimationsIntro/animationsIntroCompositionSchema"
 import { CommonVideoConfig } from "./util/schema/config"
 import path from "path"
-import { darkColorPalette, lightColorPalette } from "./util/schema/colors"
+import {
+    darkColorPalette,
+    lightColorPalette,
+} from "./util/schema/colors"
 import * as fs from "node:fs"
 
 main().catch(console.error).then(console.log)
@@ -19,7 +22,10 @@ main().catch(console.error).then(console.log)
 // ===
 
 const renders = [
-    { compositionId: "AnimationsIntro", scenes: animationsIntroScenes },
+    {
+        compositionId: "AnimationsIntro",
+        scenes: animationsIntroScenes,
+    },
 ] as const
 
 const colorPalettes = [
@@ -35,7 +41,8 @@ async function main() {
     const logLevel: LogLevel = "info"
 
     for (const renderArgs of renders) {
-        const { compositionId, scenes } = renderArgs
+        const { compositionId, scenes } =
+            renderArgs
 
         for (const scene of scenes) {
             for (const colorPalette of colorPalettes) {
@@ -45,7 +52,8 @@ async function main() {
                     logLevel,
                     outDirBase: `out/${compositionId}/${scene}/${colorPalette.name}`,
                     inputProps: {
-                        colorPalette: colorPalette.palette,
+                        colorPalette:
+                            colorPalette.palette,
                         scene,
                     },
                 }
@@ -56,7 +64,8 @@ async function main() {
     }
 }
 
-type SceneConfig<SceneType = unknown> = CommonVideoConfig & { scene: SceneType }
+type SceneConfig<SceneType = unknown> =
+    CommonVideoConfig & { scene: SceneType }
 
 type RenderArgs = {
     bundleLocation: string
@@ -88,11 +97,15 @@ async function renderFrame({
         onStart,
         onBrowserLog,
         logLevel,
-    } satisfies Partial<RenderFramesOptions> & Partial<RenderMediaOptions>
+    } satisfies Partial<RenderFramesOptions> &
+        Partial<RenderMediaOptions>
 
     // Render first frame of the video
     {
-        const frameOutputLocation = path.join(outDirBase, "frame")
+        const frameOutputLocation = path.join(
+            outDirBase,
+            "frame",
+        )
         await renderFrames({
             ...commonOptions,
             outputDir: frameOutputLocation,
@@ -101,15 +114,30 @@ async function renderFrame({
             inputProps,
         })
 
-        const outputLocation = path.join(frameOutputLocation, "element-0.jpeg")
-        const targetLocation = path.join(outDirBase, "frame.jpeg")
-        fs.renameSync(outputLocation, targetLocation)
-        fs.rmSync(frameOutputLocation, { force: true, recursive: true })
+        const outputLocation = path.join(
+            frameOutputLocation,
+            "element-0.jpeg",
+        )
+        const targetLocation = path.join(
+            outDirBase,
+            "frame.jpeg",
+        )
+        fs.renameSync(
+            outputLocation,
+            targetLocation,
+        )
+        fs.rmSync(frameOutputLocation, {
+            force: true,
+            recursive: true,
+        })
     }
 
     // Render the video
     {
-        const videoOutputLocation = path.join(outDirBase, "video.mp4")
+        const videoOutputLocation = path.join(
+            outDirBase,
+            "video.mp4",
+        )
         await renderMedia({
             ...commonOptions,
             outputLocation: videoOutputLocation,
@@ -130,9 +158,15 @@ function onFrameUpdate(
     frame: number,
     timeToRenderInMilliseconds: number,
 ) {
-    console.log(`${framesRendered} frames rendered.`)
-    console.log(`Frame ${frame} was just rendered.`)
-    console.log(`It took ${timeToRenderInMilliseconds}ms to render that frame.`)
+    console.log(
+        `${framesRendered} frames rendered.`,
+    )
+    console.log(
+        `Frame ${frame} was just rendered.`,
+    )
+    console.log(
+        `It took ${timeToRenderInMilliseconds}ms to render that frame.`,
+    )
 }
 
 function onBrowserLog(info: BrowserLog) {

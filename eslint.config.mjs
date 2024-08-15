@@ -14,6 +14,11 @@ const compat = new FlatCompat({
 export default [
     ...compat.extends("@remotion"),
     {
-        files: ["**/*.ts", "**/*.tsx", "**/.js", "**/*.jsx"],
+        files: [
+            "**/*.ts",
+            "**/*.tsx",
+            "**/.js",
+            "**/*.jsx",
+        ],
     },
 ]

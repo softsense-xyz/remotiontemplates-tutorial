@@ -1,5 +1,9 @@
 import { useColorPalette } from "../../../util/useColorPalette"
-import { interpolate, useCurrentFrame, useVideoConfig } from "remotion"
+import {
+    interpolate,
+    useCurrentFrame,
+    useVideoConfig,
+} from "remotion"
 
 export default () => {
     const { primary } = useColorPalette()
@@ -8,7 +12,7 @@ export default () => {
 
     const { fps } = useVideoConfig()
 
-    // Move the rectangle from 100 to a 1000 (left side's position)
+    // Animate the rectangle from 100 to 1000 (left side's position)
     const [startPos, endPos] = [100, 1000]
     const x = interpolate(
         currentFrame,
@@ -17,10 +21,18 @@ export default () => {
         // outputRange
         [startPos, endPos],
         {
-            // It means it should stop at the endPos after reaching it
+            // It means it should stop at the endPos once reached
             extrapolateRight: "clamp",
         },
     )
 
-    return <rect x={x} y={100} width={100} height={100} fill={primary} />
+    return (
+        <rect
+            x={x}
+            y={100}
+            width={100}
+            height={100}
+            fill={primary}
+        />
+    )
 }

@@ -22,11 +22,18 @@ export const RemotionRoot: React.FC = () => {
             <Composition
                 {...overwrittenProperties}
                 id={"AnimationsIntro"}
-                component={AnimationsIntroComposition}
-                schema={animationsIntroCompositionSchema}
-                calculateMetadata={calculateAnimationsIntroMetadata}
+                component={
+                    AnimationsIntroComposition
+                }
+                schema={
+                    animationsIntroCompositionSchema
+                }
+                calculateMetadata={
+                    calculateAnimationsIntroMetadata
+                }
                 defaultProps={{
-                    colorPalette: darkColorPalette,
+                    colorPalette:
+                        darkColorPalette,
                     scene: "AnimateBackAndForth" as const,
                 }}
             />

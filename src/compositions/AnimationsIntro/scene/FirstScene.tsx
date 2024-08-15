@@ -1,17 +1,25 @@
 import { useColorPalette } from "../../../util/useColorPalette"
 
 /**
- * First scene explaining the project setup.
+ * First scene illustrating the project setup.
  *
- * Important code is shown here, you can check out the full setup
- * in the GitHub repository.
+ * Key code elements are highlighted here. For the full setup,
+ * you can refer to the GitHub repository.
  */
 export default () => {
-    // Access the background color from a color palette
-    // that is configured globally in this example.
+    // Retrieve the background color from a globally configured
+    // color palette in this example.
     const { primary } = useColorPalette()
 
-    // Rect is an svg element. This example can render SVGs,
-    // because a parent element has opened an <svg /> tag.
-    return <rect x={100} y={100} width={100} height={100} fill={primary} />
+    // Rect is an SVG element. This example can render SVGs because
+    // a parent element has already opened an <svg /> tag.
+    return (
+        <rect
+            x={100}
+            y={100}
+            width={100}
+            height={100}
+            fill={primary}
+        />
+    )
 }

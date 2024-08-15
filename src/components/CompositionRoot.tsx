@@ -1,12 +1,16 @@
-import { AbsoluteFill, useVideoConfig } from "remotion"
+import {
+    AbsoluteFill,
+    useVideoConfig,
+} from "remotion"
 import React from "react"
 import { useColorPalette } from "../util/useColorPalette"
 
-type CompositionRootProps = React.PropsWithChildren
+type CompositionRootProps =
+    React.PropsWithChildren
 
-export const CompositionRoot: React.FC<CompositionRootProps> = ({
-    children,
-}: CompositionRootProps) => {
+export const CompositionRoot: React.FC<
+    CompositionRootProps
+> = ({ children }: CompositionRootProps) => {
     const { background } = useColorPalette()
     const { width, height } = useVideoConfig()
 

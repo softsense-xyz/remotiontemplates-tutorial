@@ -10,9 +10,10 @@ import FirstAnimationPercentageEasingScene from "./scene/FirstAnimationPercentag
 import AnimateBackAndForth from "./scene/AnimateBackAndForth"
 import AnimateLoopAttempt from "./scene/AnimateLoopAttempt"
 
-export type AnimationsIntroCompositionProps = z.infer<
-    typeof animationsIntroCompositionSchema
->
+export type AnimationsIntroCompositionProps =
+    z.infer<
+        typeof animationsIntroCompositionSchema
+    >
 
 export const AnimationsIntroComposition: React.FC<
     AnimationsIntroCompositionProps
@@ -26,9 +27,13 @@ export const AnimationsIntroComposition: React.FC<
             case "FirstAnimationFpsScene":
                 return <FirstAnimationFpsScene />
             case "FirstAnimationPercentageScene":
-                return <FirstAnimationPercentageScene />
+                return (
+                    <FirstAnimationPercentageScene />
+                )
             case "FirstAnimationPercentageEasingScene":
-                return <FirstAnimationPercentageEasingScene />
+                return (
+                    <FirstAnimationPercentageEasingScene />
+                )
             case "AnimateLoopAttempt":
                 return <AnimateLoopAttempt />
             case "AnimateBackAndForth":
@@ -38,5 +43,9 @@ export const AnimationsIntroComposition: React.FC<
         }
     }
 
-    return <CompositionRoot>{renderScene()}</CompositionRoot>
+    return (
+        <CompositionRoot>
+            {renderScene()}
+        </CompositionRoot>
+    )
 }

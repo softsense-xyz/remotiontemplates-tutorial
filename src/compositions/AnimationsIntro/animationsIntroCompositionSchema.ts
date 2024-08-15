@@ -11,10 +11,12 @@ export const animationsIntroScenes = [
     "AnimateBackAndForth",
 ] as const
 
-export type AnimationIntroScene = (typeof animationsIntroScenes)[number]
+export type AnimationIntroScene =
+    (typeof animationsIntroScenes)[number]
 
-export const animationsIntroCompositionSchema = commonVideoConfigSchema.extend(
-    z.object({
-        scene: z.enum(animationsIntroScenes),
-    }).shape,
-)
+export const animationsIntroCompositionSchema =
+    commonVideoConfigSchema.extend(
+        z.object({
+            scene: z.enum(animationsIntroScenes),
+        }).shape,
+    )

@@ -6,11 +6,14 @@ export const colorPaletteSchema = z.object({
     primary: zColor(),
 })
 
-export const commonColorPaletteObjectSchema = z.object({
-    colorPalette: colorPaletteSchema,
-})
+export const commonColorPaletteObjectSchema =
+    z.object({
+        colorPalette: colorPaletteSchema,
+    })
 
-export type ColorPalette = z.infer<typeof colorPaletteSchema>
+export type ColorPalette = z.infer<
+    typeof colorPaletteSchema
+>
 
 export const lightColorPalette: ColorPalette = {
     background: "#fafafa",

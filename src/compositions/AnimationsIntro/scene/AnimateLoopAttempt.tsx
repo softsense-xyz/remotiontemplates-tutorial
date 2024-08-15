@@ -1,5 +1,10 @@
 import { useColorPalette } from "../../../util/useColorPalette"
-import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion"
+import {
+    Easing,
+    interpolate,
+    useCurrentFrame,
+    useVideoConfig,
+} from "remotion"
 
 function calculateAnimation({
     currentFrame,
@@ -10,7 +15,8 @@ function calculateAnimation({
     loopFrameCount: number
     outputRange: readonly [number, number]
 }): number {
-    const remainder = currentFrame % loopFrameCount
+    const remainder =
+        currentFrame % loopFrameCount
 
     return interpolate(
         remainder,
@@ -18,8 +24,8 @@ function calculateAnimation({
         [0, loopFrameCount],
         outputRange,
         {
-            // Setting it to "wrap" would result in the same output.
-            // Calculating the remainder would not be needed.
+            // Setting it to "wrap" would yield the same result,
+            // making the remainder calculation unnecessary.
             extrapolateRight: "clamp",
             easing: Easing.out(Easing.cubic),
         },
@@ -39,5 +45,13 @@ export default () => {
         outputRange: [100, 1000],
     })
 
-    return <rect x={x} y={100} width={100} height={100} fill={primary} />
+    return (
+        <rect
+            x={x}
+            y={100}
+            width={100}
+            height={100}
+            fill={primary}
+        />
+    )
 }

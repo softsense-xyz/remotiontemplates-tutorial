@@ -1,6 +1,9 @@
 import { z } from "zod"
 import { commonColorPaletteObjectSchema } from "./colors"
 
-export const commonVideoConfigSchema = commonColorPaletteObjectSchema
+export const commonVideoConfigSchema =
+    commonColorPaletteObjectSchema
 
-export type CommonVideoConfig = z.infer<typeof commonVideoConfigSchema>
+export type CommonVideoConfig = z.infer<
+    typeof commonVideoConfigSchema
+>

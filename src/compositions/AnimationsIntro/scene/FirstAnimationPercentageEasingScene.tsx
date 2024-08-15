@@ -1,5 +1,10 @@
 import { useColorPalette } from "../../../util/useColorPalette"
-import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion"
+import {
+    Easing,
+    interpolate,
+    useCurrentFrame,
+    useVideoConfig,
+} from "remotion"
 
 export default () => {
     const { primary } = useColorPalette()
@@ -8,7 +13,7 @@ export default () => {
 
     const { fps } = useVideoConfig()
 
-    // Move the rectangle from 100 to a 1000 (left side's position)
+    // Animate the rectangle from 100 to a 1000 (left side's position)
     const [startPos, endPos] = [100, 1000]
     const x = interpolate(
         currentFrame,
@@ -18,7 +23,7 @@ export default () => {
         [startPos, endPos],
         {
             extrapolateRight: "clamp",
-            // Read more about the easing functions at:
+            // Learn more about the easing functions at:
             // https://www.remotion.dev/docs/easing
             //
             // This will give an animation that slows down at the end
@@ -26,5 +31,13 @@ export default () => {
         },
     )
 
-    return <rect x={x} y={100} width={100} height={100} fill={primary} />
+    return (
+        <rect
+            x={x}
+            y={100}
+            width={100}
+            height={100}
+            fill={primary}
+        />
+    )
 }
