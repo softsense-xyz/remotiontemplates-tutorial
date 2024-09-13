@@ -3,6 +3,9 @@ import { animationsIntroCompositionSchema } from "./compositions/AnimationsIntro
 import { AnimationsIntroComposition } from "./compositions/AnimationsIntro/AnimationsIntroComposition"
 import { calculateAnimationsIntroMetadata } from "./compositions/AnimationsIntro/calculateAnimationsIntroMetadata"
 import { darkColorPalette } from "./util/schema/colors"
+import { PopcornSoundVisualizerComposition } from "./compositions/PopcornSoundVisualizer/PopcornSoundVisualizerComposition"
+import { popcornSoundVisualizerCompositionSchema } from "./compositions/PopcornSoundVisualizer/popcornSoundVisualizerCompositionSchema"
+import { calculatePopcornSoundVisualizerMetadata } from "./compositions/PopcornSoundVisualizer/calculatePopcornSoundVisualizerMetadata"
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -35,6 +38,25 @@ export const RemotionRoot: React.FC = () => {
                     colorPalette:
                         darkColorPalette,
                     scene: "AnimateBackAndForth" as const,
+                }}
+            />
+
+            <Composition
+                {...overwrittenProperties}
+                id={"PopcornSoundVisualizer"}
+                component={
+                    PopcornSoundVisualizerComposition
+                }
+                schema={
+                    popcornSoundVisualizerCompositionSchema
+                }
+                calculateMetadata={
+                    calculatePopcornSoundVisualizerMetadata
+                }
+                defaultProps={{
+                    colorPalette:
+                        darkColorPalette,
+                    // scene: "AnimateBackAndForth" as const,
                 }}
             />
         </>
