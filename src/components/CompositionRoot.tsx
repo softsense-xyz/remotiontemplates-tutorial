@@ -8,10 +8,21 @@ import { useColorPalette } from "../util/useColorPalette"
 type CompositionRootProps =
     React.PropsWithChildren
 
+function useBackground(): string {
+    const { background, background2 } =
+        useColorPalette()
+
+    if (!background2) {
+        return background
+    }
+
+    return `radial-gradient(${background2}, ${background})`
+}
+
 export const CompositionRoot: React.FC<
     CompositionRootProps
 > = ({ children }: CompositionRootProps) => {
-    const { background } = useColorPalette()
+    const background = useBackground()
     const { width, height } = useVideoConfig()
 
     return (

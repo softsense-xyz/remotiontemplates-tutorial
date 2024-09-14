@@ -4,9 +4,9 @@ export class Circle {
     readonly center: Vector2
     readonly radius: number
 
-    constructor(position: Vector2, size: number) {
-        this.center = position
-        this.radius = size
+    constructor(center: Vector2, radius: number) {
+        this.center = center
+        this.radius = radius
     }
 
     setCenter(position: Vector2): Circle {
@@ -81,11 +81,15 @@ export class Circle {
         ]
     }
 
-    static calculateCollisionBetweenAll(
-        input: Circle[],
-        iterationCount: number = 1,
-        rectangleSize?: Vector2,
-    ): Circle[] {
+    static calculateCollisionBetweenAll({
+        circles: input,
+        iterationCount = 1,
+        rectangleSize,
+    }: {
+        circles: Circle[]
+        iterationCount?: number
+        rectangleSize?: Vector2
+    }): Circle[] {
         const circles = [...input]
 
         for (

@@ -12,8 +12,8 @@ import { animationsIntroScenes } from "./compositions/AnimationsIntro/animations
 import { CommonVideoConfig } from "./util/schema/config"
 import path from "path"
 import {
-    darkColorPalette,
-    lightColorPalette,
+    animationsIntroColorPalettes,
+    ColorPalette,
 } from "./util/schema/colors"
 import * as fs from "node:fs"
 
@@ -21,17 +21,28 @@ main().catch(console.error).then(console.log)
 
 // ===
 
+function createColorPaletteList(
+    palettes: Record<string, ColorPalette>,
+): Array<{
+    name: string
+    palette: ColorPalette
+}> {
+    return Object.entries(palettes).map(
+        ([name, palette]) => {
+            return { name, palette }
+        },
+    )
+}
+
 const renders = [
     {
         compositionId: "AnimationsIntro",
         scenes: animationsIntroScenes,
+        colorPalettes: createColorPaletteList(
+            animationsIntroColorPalettes,
+        ),
     },
 ] as const
-
-const colorPalettes = [
-    { name: "light", palette: lightColorPalette },
-    { name: "dark", palette: darkColorPalette },
-]
 
 async function main() {
     const bundleLocation = await bundle({
@@ -41,8 +52,11 @@ async function main() {
     const logLevel: LogLevel = "info"
 
     for (const renderArgs of renders) {
-        const { compositionId, scenes } =
-            renderArgs
+        const {
+            compositionId,
+            scenes,
+            colorPalettes,
+        } = renderArgs
 
         for (const scene of scenes) {
             for (const colorPalette of colorPalettes) {

@@ -2,7 +2,10 @@ import { Composition } from "remotion"
 import { animationsIntroCompositionSchema } from "./compositions/AnimationsIntro/animationsIntroCompositionSchema"
 import { AnimationsIntroComposition } from "./compositions/AnimationsIntro/AnimationsIntroComposition"
 import { calculateAnimationsIntroMetadata } from "./compositions/AnimationsIntro/calculateAnimationsIntroMetadata"
-import { darkColorPalette } from "./util/schema/colors"
+import {
+    animationsIntroColorPalettes,
+    popcornSoundVisualizerColorPalettes,
+} from "./util/schema/colors"
 import { PopcornSoundVisualizerComposition } from "./compositions/PopcornSoundVisualizer/PopcornSoundVisualizerComposition"
 import { popcornSoundVisualizerCompositionSchema } from "./compositions/PopcornSoundVisualizer/popcornSoundVisualizerCompositionSchema"
 import { calculatePopcornSoundVisualizerMetadata } from "./compositions/PopcornSoundVisualizer/calculatePopcornSoundVisualizerMetadata"
@@ -36,7 +39,7 @@ export const RemotionRoot: React.FC = () => {
                 }
                 defaultProps={{
                     colorPalette:
-                        darkColorPalette,
+                        animationsIntroColorPalettes.dark,
                     scene: "AnimateBackAndForth" as const,
                 }}
             />
@@ -55,8 +58,8 @@ export const RemotionRoot: React.FC = () => {
                 }
                 defaultProps={{
                     colorPalette:
-                        darkColorPalette,
-                    // scene: "AnimateBackAndForth" as const,
+                        popcornSoundVisualizerColorPalettes.dark,
+                    scene: "FinalScene" as const,
                 }}
             />
         </>
