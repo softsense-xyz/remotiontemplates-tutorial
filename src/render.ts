@@ -8,14 +8,16 @@ import {
     selectComposition,
 } from "@remotion/renderer"
 import { bundle } from "@remotion/bundler"
-import { animationsIntroScenes } from "./compositions/AnimationsIntro/animationsIntroCompositionSchema"
 import { CommonVideoConfig } from "./util/schema/config"
 import path from "path"
 import {
     animationsIntroColorPalettes,
     ColorPalette,
+    popcornSoundVisualizerColorPalettes,
 } from "./util/schema/colors"
 import * as fs from "node:fs"
+import { popcornSoundVisualizerScenes } from "./compositions/PopcornSoundVisualizer/popcornSoundVisualizerCompositionSchema"
+import { animationsIntroScenes } from "./compositions/AnimationsIntro/animationsIntroCompositionSchema"
 
 main().catch(console.error).then(console.log)
 
@@ -40,6 +42,13 @@ const renders = [
         scenes: animationsIntroScenes,
         colorPalettes: createColorPaletteList(
             animationsIntroColorPalettes,
+        ),
+    },
+    {
+        compositionId: "PopcornSoundVisualizer",
+        scenes: popcornSoundVisualizerScenes,
+        colorPalettes: createColorPaletteList(
+            popcornSoundVisualizerColorPalettes,
         ),
     },
 ] as const

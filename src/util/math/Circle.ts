@@ -52,6 +52,7 @@ export class Circle {
         const combinedRadii = a.radius + b.radius
 
         if (distance > combinedRadii) {
+            // Not colliding
             return [a, b]
         }
 

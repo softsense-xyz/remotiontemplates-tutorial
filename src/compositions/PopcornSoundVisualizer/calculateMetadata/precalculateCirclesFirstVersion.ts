@@ -29,7 +29,7 @@ export async function precalculateCirclesFirstVersion({
     const result: CirclesInFrame = []
 
     // Create an element for each frame.
-    // Deliberately using a for-loop instead `createArrayOfSize`,
+    // Deliberately using a for-loop instead of `createArrayOfSize`,
     // to be able to access previous elements later.
     for (
         let frame = 0;

@@ -27,7 +27,7 @@ export const RemotionRoot: React.FC = () => {
         <>
             <Composition
                 {...overwrittenProperties}
-                id={"AnimationsIntro"}
+                id="AnimationsIntro"
                 component={
                     AnimationsIntroComposition
                 }
@@ -46,7 +46,7 @@ export const RemotionRoot: React.FC = () => {
 
             <Composition
                 {...overwrittenProperties}
-                id={"PopcornSoundVisualizer"}
+                id="PopcornSoundVisualizer"
                 component={
                     PopcornSoundVisualizerComposition
                 }

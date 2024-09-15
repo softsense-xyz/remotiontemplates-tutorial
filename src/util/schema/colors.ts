@@ -39,18 +39,9 @@ export const animationsIntroColorPalettes = {
 
 export const popcornSoundVisualizerColorPalettes =
     {
-        light: {
-            background: "#fafafa",
-            primary: primary500,
-        },
         dark: {
             background: "#190B28",
             background2: "#321650",
             primary: primary400,
         },
     } satisfies { [key: string]: ColorPalette }
-
-export const darkColorPalette: ColorPalette = {
-    background: "#000000",
-    primary: primary500,
-}
